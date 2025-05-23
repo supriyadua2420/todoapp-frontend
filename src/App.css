@@ -13,42 +13,22 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column; 
-  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  /* background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); */
+  background: url("../public/do.png") no-repeat center center fixed;
+  background-size: cover;
   font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
-/* body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: url("../public/todo.png") no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-} */
-
-
-/* .app-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
-  background: #fff8f0;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: transform 0.3s ease;
-} */
 
 .app-container {
   max-width: 600px;
   margin: 50px auto;
-  padding: 30px;
-  background: rgba(255, 248, 240, 0.9); /* translucent white */
+  padding: 30px; /* you have this */
+  background: rgba(255, 248, 240, 0.9);
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: transform 0.3s ease;
-  backdrop-filter: blur(6px); /* Optional: adds frosted glass effect */
+  text-align: left; /* align text left for consistency */
+  backdrop-filter: blur(6px);
 }
 
 
@@ -57,16 +37,20 @@ body {
 }
 
 h1 {
-  color: #ff4e50;
+  margin: 0 0 20px 0; /* no extra side margin */
+  padding: 0;
   font-size: 3rem;
-  margin-bottom: 20px;
+  color: #ff4e50;
+  font-weight: 700;
 }
 
-.task-input {
+ .task-input {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* align left */
   gap: 10px;
   margin-bottom: 20px;
+  width: 100%;
+  padding: 0; /* no side padding */
 }
 
 .task-input input {
@@ -102,6 +86,7 @@ h1 {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  width: 100%; /* full width */
 }
 
 .task-list li {
@@ -181,4 +166,45 @@ button {
 button:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(255, 111, 145, 0.6);
+}
+
+/* Override styles for checkboxes */
+
+.checkbox-left {
+  width: 24px !important;
+  height: 24px !important;
+  accent-color: #2563eb; /* Tailwind blue-600 */
+  border: 2px solid #2563eb;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.task-list-item {
+  background: #fff0f5;
+  margin: 10px 0;
+  padding: 12px 18px; /* consistent with container padding */
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 10px rgba(255, 105, 135, 0.2);
+  min-height: 48px;
+  line-height: 1.2;
+  width: 100%; /* full width inside the ul */
+  box-sizing: border-box;
+}
+
+.checkbox-right {
+  width: 24px !important;
+  height: 24px !important;
+  accent-color: #16a34a;
+  border: 2px solid #16a34a;
+  border-radius: 6px;
+  cursor: pointer;
+
+  vertical-align: middle;
+  margin: 0;
+  display: inline-block;
+  align-self: center; /* Explicitly center in flex container */
 }

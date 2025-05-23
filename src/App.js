@@ -72,29 +72,32 @@ const TodoApp = () => {
       </div>
       <ul>
         {tasks.map((task) => (
-          <li
-            key={task.id}
-            className="flex justify-between items-center p-2 border-b"
-          >
+         <li
+  key={task.id}
+  className="task-list-item flex justify-between items-center p-2"
+>
+  <div className="flex items-center gap-3">
+    <input
+      type="checkbox"
+      checked={selectedTaskIds.includes(task.id)}
+      onChange={() => handleCheckboxChange(task.id)}
+      className="checkbox-left"
+    />
+    <span className={task.completed ? "line-through text-gray-400" : "text-gray-900"}>
+      {task.title}
+    </span>
+  </div>
 
-            <div className="flex items-center gap-2">
+  <input
+    type="checkbox"
+    checked={task.completed}
+    onChange={() => toggleTask(task)}
+    className="checkbox-right"
+  />
+</li>
 
-            <input 
-              type = "checkbox"
-              checked = {selectedTaskIds.includes(task.id)}
-              onChange={() => handleCheckboxChange(task.id)}
-            />
-            <span className={task.completed ? "line-through text-gray-400" : ""}>
-              {task.title}
-            </span>
 
-             </div>
-            {/* <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => toggleTask(task)}
-            /> */}
-          </li>
+
         ))}
       </ul>
     </div>
